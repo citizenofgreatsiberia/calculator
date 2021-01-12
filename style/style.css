@@ -31,12 +31,6 @@ body {
 	margin: 0 20px;
 }
 
-@media screen and (max-width: 505px) {
-	.calc {
-		min-height: 100vh;
-	}
-}
-
 .calc__display {
 	height: 20%;
 	background-color: #222;
