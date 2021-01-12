@@ -30,6 +30,12 @@ body {
 	box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 505px) {
+	.calc {
+		min-height: 100vh;
+	}
+}
+
 .calc__display {
 	height: 20%;
 	background-color: #222;
