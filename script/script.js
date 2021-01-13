@@ -1,36 +1,36 @@
-// calc body and buttons
-// const myCalc = document.querySelector(".calc");
 const calcDisplay = document.querySelector(".calc__display");
 const buttons = document.querySelector(".calc__buttons");
-const percent = document.querySelector(".percent");
-const clean = document.querySelector(".clean");
-const divide = document.querySelector(".divide");
-const equal = document.querySelector(".equal");
-const multi = document.querySelector(".multi");
-const minus = document.querySelector(".minus");
-const plus = document.querySelector(".plus");
-const comma = document.querySelector(".comma");
-const del = document.querySelector(".del");
 
-const zero = document.querySelector(".zero");
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
-const six = document.querySelector(".six");
-const seven = document.querySelector(".seven");
-const eight = document.querySelector(".eight");
-const nine = document.querySelector(".nine");
+let signs = [
+	"1", "2", "3", "+",
+	"4", "5", "6", "-",
+	"7", "8", "9", "*",
+	"0", "/", ".", "c",
+	"=",
+];
 
-buttons.addEventListener("click", (e) => {
-	const {target} = e;
-	if(target.classList.contains("part-of-exp")) {
-		calcDisplay.innerHTML += target.innerHTML;
-	} else if (target.classList.contains("equal")) {
-		calcDisplay.innerHTML += ("=" + eval(calcDisplay.innerHTML));
-	} else if (target.classList.contains("clean")) {
-		calcDisplay.innerHTML = "";
+signs.forEach(function (sign) {
+	let signElement = document.createElement("div");
+	signElement.classList.add("calc__button");
+	signElement.innerHTML = sign;
+	buttons.appendChild(signElement);
+	if (signElement.innerHTML === "=") {
+		signElement.classList.add("bottom-border")
 	}
 });
 
+document.querySelectorAll(".calc__buttons .calc__button").forEach(function(button) {
+	button.addEventListener("click", onButtonClick);
+});
+
+function onButtonClick(event) {
+	if (event.target.innerHTML === "c") {
+		calcDisplay.innerHTML = "0";
+	} else if (event.target.innerHTML === "=") {
+		calcDisplay.innerHTML = eval(calcDisplay.innerHTML);
+	} else if (calcDisplay.innerHTML === "0") {
+		calcDisplay.innerHTML = event.target.innerHTML;
+	} else {
+		calcDisplay.innerHTML += event.target.innerHTML;
+	}
+};
