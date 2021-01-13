@@ -32,12 +32,12 @@ body {
 }
 
 .calc__display {
-	height: 20%;
+	height: 25%;
 	background-color: #222;
 	border-radius: 10px 10px 0 0;
 	color: #fff;
-	text-align: center;
-	padding: 12% 5% 0;
+	text-align: left;
+	padding: 14% 11% 0;
 	word-break: break-all;
 }
 
@@ -45,7 +45,7 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
-	height: 80%;
+	height: 75%;
 }
 
 .calc__button {
@@ -58,18 +58,25 @@ body {
 	color: #fff;
 	border: 1px solid #fff;
 }
-.calc__button:not(.del) {
+.calc__button:not(.bottom-border) {
 	padding-top: 30%;
 	background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(189,189,189,1) 100%);
 }
-.del {
-	grid-column: 3 / 5;
-	grid-row: -1 / -2;
+.bottom-border {
 	background: linear-gradient(170deg, rgba(255,210,225,1) 0%, rgba(255,82,231,1) 100%);
-	border-radius: 0 0 10px;
-	padding-top: 15%;
+	border-radius: 0 0 10px 10px;
+	padding-top: 5%;
 	color: #fff;
+	grid-column: 1 / 5;
+	font-size: 40px;
 }
-.zero {
-	border-radius: 0 0 0 10px;
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
